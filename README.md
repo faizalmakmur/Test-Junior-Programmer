@@ -21,6 +21,8 @@ Aplikasi web berbasis Python Django untuk mengelola data produk dengan fitur CRU
 ### 3. Edit Produk
 <img width="1920" height="967" alt="screencapture-127-0-0-1-8000-produk-edit-19-2026-02-03-12_00_20" src="https://github.com/user-attachments/assets/6671c3e8-325a-4a07-a04f-97029657747a" />
 
+### 3. Database MySQL
+<img width="1920" height="919" alt="screencapture-localhost-phpmyadmin-index-php-2026-02-03-22_03_56" src="https://github.com/user-attachments/assets/6e6a942c-505b-46ba-b6eb-5f4b4b81c276" />
 
 ## 🚀 Cara Instalasi
 1. Clone repository ini.
