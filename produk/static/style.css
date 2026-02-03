@@ -1,0 +1,204 @@
+:root {
+    --primary-blue: #3498db;
+    --light-blue: #ebf5fb;
+    --dark-blue: #2c3e50;
+    --white: #ffffff;
+    --gray-bg: #f8fafc;
+    --border-color: #e2e8f0;
+    --success: #2ecc71;
+    --danger: #e74c3c;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--gray-bg);
+    margin: 0;
+    padding: 40px;
+    color: var(--dark-blue);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-weight: 700;
+    color: var(--dark-blue);
+    margin-bottom: 30px;
+    text-align: left;
+    border-left: 5px solid var(--primary-blue);
+    padding-left: 15px;
+}
+
+.table-wrapper {
+    background-color: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: var(--light-blue);
+    color: var(--primary-blue);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    padding: 18px 15px;
+    text-align: left;
+}
+
+td {
+    padding: 15px;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 14px;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:hover {
+    background-color: #fdfdfd;
+    transition: 0.3s;
+}
+
+.status-badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.status-bisa {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+.status-tidak {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.btn-edit {
+    color: var(--primary-blue);
+    font-weight: 600;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.btn-hapus {
+    color: var(--danger);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.btn-edit:hover, .btn-hapus:hover {
+    opacity: 0.7;
+}
+
+
+.form-container {
+    background-color: var(--white);
+    max-width: 500px; 
+    margin: 50px auto; 
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05); 
+    border: 1px solid var(--border-color);
+}
+
+.form-title {
+    text-align: center;
+    color: var(--dark-blue);
+    margin-bottom: 30px;
+    font-size: 24px;
+    border-bottom: 2px solid var(--light-blue);
+    padding-bottom: 15px;
+}
+
+/* Styling Label */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--dark-blue);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* Styling Input & Select */
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group select, 
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 14px;
+    box-sizing: border-box; 
+    transition: all 0.3s ease;
+    background-color: #f8fafc;
+}
+
+/* Efek saat diklik/fokus */
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--primary-blue);
+    background-color: #fff;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+/* Tombol Simpan */
+.btn-submit {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+
+.btn-submit:hover {
+    background-color: #2980b9;
+}
+
+/* Tombol Kembali */
+.btn-back {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #64748b;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.btn-back:hover {
+    color: var(--dark-blue);
+}
+
+/* Pesan Error (Validasi) */
+.error-msg {
+    color: var(--danger);
+    font-size: 12px;
+    margin-top: 5px;
+    display: block;
+}

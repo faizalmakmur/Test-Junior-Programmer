@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard Produk</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            background-color: #f4f7f6; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .card {
+            border-radius: 15px; 
+            border: none; 
+        }
+        .table thead th {
+            font-weight: 600;
+            color: #555;
+            border-bottom: 2px solid #eee;
+        }
+        .btn-action {
+            width: 35px;
+            height: 35px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+        .btn-action:hover {
+            transform: translateY(-2px);
+        }
+        .badge-soft-success {
+            background-color: #d1fae5;
+            color: #065f46;
+        }
+        .badge-soft-danger {
+            background-color: #fee2e2;
+            color: #991b1b;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container mt-5 mb-5">
+        
+        <div class="card shadow-sm mb-4">
+            <div class="card-body d-flex justify-content-between align-items-center py-3 px-4">
+                <div>
+                    <h4 class="mb-0 fw-bold text-dark" style="letter-spacing: -0.5px;">
+                        <i class="fas fa-layer-group text-primary me-2"></i>Daftar Produk
+                    </h4>
+                    <small class="text-muted">Kelola data produk Anda di sini</small>
+                </div>
+                <a href="{% url 'produk_tambah' %}" class="btn btn-primary px-4 rounded-pill shadow-sm">
+                    <i class="fas fa-plus me-2"></i>Baru
+                </a>
+            </div>
+        </div>
+
+        <div class="card shadow-sm">
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0">
+                        <thead class="bg-light">
+                            <tr>
+                                <th class="text-center py-3" width="5%">#</th>
+                                <th width="35%">Nama Produk</th>
+                                <th width="20%">Kategori</th>
+                                <th width="15%" class="text-end">Harga</th>
+                                <th width="15%" class="text-center">Status</th>
+                                <th width="10%" class="text-center">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for p in produk %}
+                            <tr>
+                                <td class="text-center text-muted">{{ forloop.counter }}</td>
+                                
+                                <td class="fw-bold text-dark">
+                                    {{ p.nama_produk }}
+                                </td>
+                                
+                                <td class="text-muted small">
+                                    <span class="d-inline-block bg-light px-2 py-1 rounded border">
+                                        {{ p.kategori.nama_kategori }}
+                                    </span>
+                                </td>
+                                
+                                <td class="text-end fw-bold text-secondary">
+                                    <span style="font-size: 0.8em; margin-right: 2px;">Rp</span>{{ p.harga }}
+                                </td>
+                                
+                                <td class="text-center">
+                                    {% if p.status.nama_status|lower == 'bisa dijual' %}
+                                        <span class="badge badge-soft-success rounded-pill px-3 py-2">
+                                            <i class="fas fa-check-circle me-1"></i> Bisa Dijual
+                                        </span>
+                                    {% else %}
+                                        <span class="badge badge-soft-danger rounded-pill px-3 py-2">
+                                            <i class="fas fa-times-circle me-1"></i> Tidak Bisa Dijual
+                                        </span>
+                                    {% endif %}
+                                </td>
+                                
+                                <td class="text-center">
+                                    <div class="d-flex justify-content-center gap-2">
+                                    <a href="{% url 'produk_edit' p.pk %}" 
+                                       class="btn btn-outline-primary btn-action btn-sm me-1" 
+                                       title="Edit">
+                                        <i class="fas fa-pen fa-xs"></i>
+                                    </a>
+                                    
+                                    <a href="{% url 'produk_hapus' p.pk %}" 
+                                       class="btn btn-outline-danger btn-action btn-sm tombol-hapus" 
+                                       data-nama="{{ p.nama_produk }}"
+                                       title="Hapus">
+                                        <i class="fas fa-trash fa-xs"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="6" class="text-center py-5 text-muted">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/7486/7486777.png" width="60" class="mb-3 opacity-50">
+                                    <p class="mb-0">Belum ada data produk.</p>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+<div class="container mt-3 mb-5">
+    <div class="d-grid gap-2">
+        {% if halaman == 'utama' %}
+            <a href="{% url 'produk_tidak_jual' %}" class="btn btn-outline-danger border-2 fw-bold py-2 rounded-pill">
+                <i class="fas fa-archive me-2"></i> Lihat Produk yang Tidak Bisa Dijual
+            </a>
+        {% else %}
+            <a href="{% url 'produk_list' %}" class="btn btn-outline-primary border-2 fw-bold py-2 rounded-pill">
+                <i class="fas fa-arrow-left me-2"></i> Kembali ke Produk Aktif
+            </a>
+        {% endif %}
+    </div>
+</div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const deleteButtons = document.querySelectorAll('.tombol-hapus');
+            deleteButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const urlHapus = this.getAttribute('href');
+                    const namaProduk = this.getAttribute('data-nama');
+
+                    Swal.fire({
+                        title: 'Hapus Data?',
+                        text: namaProduk,
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#d33',
+                        cancelButtonColor: '#888',
+                        confirmButtonText: 'Ya, Hapus',
+                        cancelButtonText: 'Batal',
+                        reverseButtons: true 
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = urlHapus;
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
