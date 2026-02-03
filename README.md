@@ -24,6 +24,10 @@ Aplikasi web berbasis Python Django untuk mengelola data produk dengan fitur CRU
 ### 3. Database phpMyAdmin
 <img width="1920" height="919" alt="screencapture-localhost-phpmyadmin-index-php-2026-02-03-22_03_56" src="https://github.com/user-attachments/assets/6e6a942c-505b-46ba-b6eb-5f4b4b81c276" />
 
+### 4. Link Video Drive
+https://drive.google.com/file/d/1jLM2ioZcLUWCbQd14g3huSQJOauWKoy6/view?usp=sharing
+
+
 ## 🚀 Cara Instalasi
 1. Clone repository ini.
 2. Install library: `pip install -r requirements.txt`
